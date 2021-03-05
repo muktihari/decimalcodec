@@ -17,7 +17,7 @@ func main() {
 
     // you might want to include defaults encoder and decoder as well
     bsoncodec.DefaultValueDecoders{}.RegisterDefaultDecoders(rb)
-	bsoncodec.DefaultValueEncoders{}.RegisterDefaultEncoders(rb)
+    bsoncodec.DefaultValueEncoders{}.RegisterDefaultEncoders(rb)
 
     decimalcodec.RegisterEncodeDecoder(rb)
     
