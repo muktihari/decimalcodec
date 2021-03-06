@@ -45,31 +45,36 @@ func DecimalValueDecoder(dc bsoncodec.DecodeContext, vr bsonrw.ValueReader, v re
 
 	switch t := vr.Type(); t {
 	case bsontype.Decimal128:
-		d128, err := vr.ReadDecimal128()
+		var d128 primitive.Decimal128
+		d128, err = vr.ReadDecimal128()
 		if err != nil {
 			return err
 		}
 		d, err = decimal.NewFromString(d128.String())
 	case bsontype.Double:
-		f64, err := vr.ReadDouble()
+		var f64 float64
+		f64, err = vr.ReadDouble()
 		if err != nil {
 			return err
 		}
 		d = decimal.NewFromFloat(f64)
 	case bsontype.Int32:
-		i32, err := vr.ReadInt32()
+		var i32 int32
+		i32, err = vr.ReadInt32()
 		if err != nil {
 			return err
 		}
 		d = decimal.NewFromInt32(i32)
 	case bsontype.Int64:
-		i64, err := vr.ReadInt64()
+		var i64 int64
+		i64, err = vr.ReadInt64()
 		if err != nil {
 			return err
 		}
 		d = decimal.NewFromInt(i64)
 	case bsontype.String:
-		str, err := vr.ReadString()
+		var str string
+		str, err = vr.ReadString()
 		if err != nil {
 			return err
 		}
